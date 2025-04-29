@@ -1,12 +1,93 @@
+<nav class="navbar is-dark-light">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <!-- logo -->
+      WPL
+    </a>
+    <div *ngIf="loginSuccess">Utilisateur connecté</div>
+  </div>
+</nav>
 <section class="hero is-dark is-fullheight">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title">
-          Bienvenue sur WPL !
-        </h1>
-        <h2 class="subtitle">
-          Watch, Play & Listen
-        </h2>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">Bienvenue sur WPL !</h1>
+      <h2 class="subtitle">Watch, Play & Listen</h2>
+    </div>
+  </div>
+  <section class="section is-hidden-mobile">
+    <div class="container">
+      <div class="columns">
+
+        <div class="column">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdx2C3UXGsv3gn8mbOK2WliWhsZr7jHopy7Q&s"
+                  alt="Placeholder image"
+                />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left"></div>
+                <div class="media-content">
+                  <p class="title is-4 has-text-dark has-text-centered">
+                    Films
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://images.theconversation.com/files/193581/original/file-20171107-1020-1ls773a.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=926&fit=clip"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left"></div>
+                  <div class="media-content">
+                    <p class="title is-4 has-text-dark has-text-centered">
+                      Séries
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    src="https://artfiles.alphacoders.com/889/thumb-1920-88984.jpg"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left"></div>
+                  <div class="media-content">
+                    <p class="title is-4 has-text-dark has-text-centered">
+                      Jeux-vidéos
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
       </div>
     </div>
   </section>
+</section>
