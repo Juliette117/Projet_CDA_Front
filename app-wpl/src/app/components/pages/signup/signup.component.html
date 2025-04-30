@@ -1,10 +1,11 @@
 <section class="section">
   <div class="container">
     <h2 class="title">Créer un compte</h2>
-    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+    <form class="box" (ngSubmit)="onSubmit()" #signupForm="ngForm">
       <div class="field">
-        <label  class="email">Email</label><br />
-        <input class="input"
+        <label class="email">Email</label><br />
+        <input
+          class="input"
           id="email"
           type="email"
           name="email"
@@ -14,9 +15,10 @@
         />
       </div>
 
-      <div>
+      <div class="field">
         <label for="username">Nom d'utilisateur</label><br />
-        <input class="input"
+        <input
+          class="input"
           id="username"
           type="text"
           name="username"
@@ -26,9 +28,10 @@
         />
       </div>
 
-      <div>
+      <div class="field">
         <label for="password">Mot de passe</label><br />
-        <input class="input"
+        <input
+          class="input"
           id="password"
           type="password"
           name="password"
@@ -38,13 +41,14 @@
         />
       </div>
 
-      <div>
-        <button class="button is-primary" type="submit" [disabled]="signupForm.invalid">
-          Créer mon compte
-        </button>
-      </div>
-    </form>
-    <!-- Message de succès -->
+      <button
+        class="button has-background-primary-40 has-text-primary-25-invert"
+        type="submit"
+        [disabled]="signupForm.invalid"
+      >
+        Créer mon compte
+      </button>
+       <!-- Message de succès -->
     <div *ngIf="signupSuccess" style="color: green; margin-top: 10px">
         Inscription réussie !
       </div>
@@ -53,5 +57,6 @@
       <div *ngIf="signupError" style="color: red; margin-top: 10px">
         Email ou mot de passe incorrect.
       </div>
+    </form>
   </div>
 </section>
