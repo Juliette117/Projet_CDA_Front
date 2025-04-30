@@ -1,0 +1,29 @@
+<div class="profile-container">
+  <h2>Mon Profil</h2>
+
+  <div *ngIf="user; else errorTemplate">
+    <p><strong>Email :</strong> {{ user.email }}</p>
+    <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+
+    <button (click)="logout()">Se déconnecter</button>
+  </div>
+
+  <ng-template #errorTemplate>
+    <p style="color: red">{{ error }}</p>
+    <button (click)="logout()">Retour à l'accueil</button>
+  </ng-template>
+</div>
+
+<!-- TODO POUR ADMIN
+  <div *ngIf="users.length > 0; else noUsers">
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.username }} - {{ user.email }}
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noUsers>
+    <p>Aucun utilisateur trouvé.</p>
+  </ng-template>
+</div> -->

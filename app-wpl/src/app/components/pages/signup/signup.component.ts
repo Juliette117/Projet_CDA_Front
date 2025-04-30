@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +19,7 @@ export class SignupComponent {
   signupSuccess = false;
   signupError = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     this.authService
@@ -32,7 +33,7 @@ export class SignupComponent {
           console.log('Inscription réussie !', response);
           this.signupSuccess = true;
           this.signupError = false;
-          // rediriger vers /login après
+          this.router.navigate(['/login']);
         },
         error: (err) => {
           console.error("Erreur d'inscription :", err);
