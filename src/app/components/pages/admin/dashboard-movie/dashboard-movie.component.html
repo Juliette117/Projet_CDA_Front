@@ -1,0 +1,122 @@
+<section>
+  <h2 class="title is-4">Films</h2>
+  <h3 *ngIf="movies?.length">Nombre de films : {{ movies.length }}</h3>
+  <button class="button is-primary mb-4" (click)="openMovieModal()">
+    Ajouter un film
+  </button>
+
+  <table class="table is-fullwidth is-striped is-hoverable">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <h3 *ngIf="!movies.length">Aucun films</h3>
+      <tr *ngFor="let movie of movies">
+        <td>{{ movie.title }}</td>
+        <td>
+          <button
+            class="button is-small is-info"
+            (click)="openMovieModal(movie)"
+          >
+            Modifier
+          </button>
+          <button
+            class="button is-small is-danger"
+            (click)="deleteMovie(movie.id)"
+          >
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal" [class.is-active]="isModalOpen">
+    <div class="modal-background" (click)="isModalOpen = false"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">
+          {{ editingMovie?.id ? "Modifier" : "Créer" }} un film
+        </p>
+        <button
+          class="delete"
+          aria-label="close"
+          (click)="isModalOpen = false"
+        ></button>
+      </header>
+
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">Titre</label>
+          <input class="input" [(ngModel)]="editingMovie.title" required />
+        </div>
+        <div class="field">
+          <label class="label">Synopsis</label>
+          <textarea
+            class="textarea"
+            [(ngModel)]="editingMovie.description"
+            required
+          ></textarea>
+        </div>
+        <div class="field">
+          <label class="label">Genres</label>
+          <input class="input" [(ngModel)]="editingMovie.genreString" />
+        </div>
+        <div class="field">
+          <label class="label">Directeur/Directrices</label>
+          <input class="input" [(ngModel)]="editingMovie.director" />
+        </div>
+         <div class="field">
+          <label class="label">Acteur(s)/Actrice(s)</label>
+          <input class="input" [(ngModel)]="editingMovie.actorsString" />
+        </div>
+        <div class="field">
+          <label class="label">Affiche (URL)</label>
+          <input
+            class="input"
+            type="text"
+            placeholder="https://exemple.com/image.jpg"
+            [(ngModel)]="editingMovie.posterUrl"
+          />
+        </div>
+
+        <div class="field" *ngIf="editingMovie.posterUrl">
+          <label class="label">Aperçu :</label>
+          <img
+            [src]="editingMovie.posterUrl"
+            alt="{{ editingMovie.title }}"
+            width="110"
+            class="img"
+          />
+        </div>
+
+        <div class="field">
+          <label class="label">Durée</label>
+          <input
+            type="number"
+            class="input"
+            [(ngModel)]="editingMovie.duration"
+          />
+        </div>
+        <div class="field">
+          <label class="label">Année de sortie</label>
+          <input
+            type="number"
+            class="input"
+            [(ngModel)]="editingMovie.releaseDate"
+          />
+        </div>
+      </section>
+
+      <footer class="modal-card-foot">
+        <button class="button is-success" (click)="saveMovie()">
+          Enregistrer
+        </button>
+        <button class="button" (click)="isModalOpen = false">Annuler</button>
+      </footer>
+    </div>
+  </div>
+</section>

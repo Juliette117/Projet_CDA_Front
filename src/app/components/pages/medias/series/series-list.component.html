@@ -1,0 +1,58 @@
+<!-- <section class="section">
+  <div class="container">
+    <h2 class="subtitle">Films</h2>
+    <div *ngIf="movies.length > 0; else noMovies">
+      <ul>
+        <li *ngFor="let movie of movies">
+          {{ movie.title }}
+        </li>
+      </ul>
+    </div>
+    <ng-template #noMovies>
+      <p>Aucun film disponible.</p>
+    </ng-template>
+</section> -->
+
+<app-navbar></app-navbar>
+
+<section class="section has-background-white-ter" style="padding: 7%;">
+  <div class="container">
+    <div>
+      <h2 class="title">Dernières séries ajoutées</h2>
+    </div>
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Genre</th>
+          <th>Synopsis</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let serie of series">
+        <tr *ngIf="serie.type === 'movie'">
+          <td>
+            <img [src]="serie.posterUrl" alt="{{ serie.title }}" width="110" />
+          </td>
+          <td>{{ serie.title }}</td>
+          <td>{{ serie.genre }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- <section class="section">
+    <h2 class="title is-4">Médias recommandés</h2>
+    <div class="columns is-multiline">
+      <div class="column is-one-quarter" *ngFor="let media of recommendedMedia">
+        <div class="box">
+          <p class="has-text-weight-bold">{{ media.title }}</p>
+          <p class="is-size-7">{{ media.genre?.join(', ') }}</p>
+          <p *ngIf="media.releaseDate">({{ media.releaseDate }})</p>
+          <button class="button is-small is-primary mt-2" (click)="addToFavorites(media)">
+            Ajouter aux favoris
+          </button>
+        </div>
+      </div>
+    </div>
+  </section> -->
+</section>
