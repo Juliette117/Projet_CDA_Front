@@ -1,0 +1,154 @@
+<!-- NAVBAR -->
+<app-navbar></app-navbar>
+
+<section class="hero has-background-white-ter is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered" style="padding: 5rem">
+      <h1 class="title">Bienvenue sur WPL</h1>
+      <h2 class="subtitle">Watch, Play & Listen</h2>
+    </div>
+  </div>
+</section>
+
+<!-- CARDS (Films / Séries / Jeux) -->
+<section class="section is-hidden-mobile">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="card" (click)="navigateToMovies()">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdx2C3UXGsv3gn8mbOK2WliWhsZr7jHopy7Q&s"
+                alt="Films"
+              />
+            </figure>
+          </div>
+          <div class="card-content has-text-centered">
+            <p class="title is-4 ">Films</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card" (click)="navigateToSeries()">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="https://images.theconversation.com/files/193581/original/file-20171107-1020-1ls773a.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=926&fit=clip"
+                alt="Séries"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <p class="title is-4 has-text-centered">Séries</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card" (click)="navigateToGames()">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="https://artfiles.alphacoders.com/889/thumb-1920-88984.jpg"
+                alt="Jeux vidéo"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <p class="title is-4 has-text-centered">Jeux-vidéo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTE MÉDIAS -->
+<section class="section has-background-white-ter">
+  <div class="container">
+    <div>
+      <h2 class="title">Derniers ajouts</h2>
+    </div>
+
+    <!-- Films -->
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Films</th>
+          <th>Titre</th>
+          <th>Genre</th>
+          <th>Synopsis</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let media of medias">
+        <tr *ngIf="media.type === 'movie'">
+          <td>
+            <img [src]="media.posterUrl" alt="{{ media.title }}" width="110" />
+          </td>
+          <td>{{ media.title }}</td>
+          <td>{{ media.genre }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Séries -->
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Séries</th>
+          <th>Titre</th>
+          <th>Genre</th>
+          <th>Synopsis</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let media of medias">
+        <tr *ngIf="media.type === 'serie'">
+          <td>
+            <img [src]="media.posterUrl" alt="{{ media.title }}" width="110" />
+          </td>
+          <td>{{ media.title }}</td>
+          <td>{{ media.genre }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Jeux vidéo -->
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Jeux-vidéo</th>
+          <th>Titre</th>
+          <th>Genre</th>
+          <th>Synopsis</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let media of medias">
+        <tr *ngIf="media.type === 'videogame'">
+          <td>
+            <img [src]="media.image" alt="{{ media.title }}" width="110" />
+          </td>
+          <td>{{ media.title }}</td>
+          <td>{{ media.genre }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- <section class="section">
+    <h2 class="title is-4">Médias recommandés</h2>
+    <div class="columns is-multiline">
+      <div class="column is-one-quarter" *ngFor="let media of recommendedMedia">
+        <div class="box">
+          <p class="has-text-weight-bold">{{ media.title }}</p>
+          <p class="is-size-7">{{ media.genre?.join(', ') }}</p>
+          <p *ngIf="media.releaseDate">({{ media.releaseDate }})</p>
+          <button class="button is-small is-primary mt-2" (click)="addToFavorites(media)">
+            Ajouter aux favoris
+          </button>
+        </div>
+      </div>
+    </div>
+  </section> -->
+</section>
